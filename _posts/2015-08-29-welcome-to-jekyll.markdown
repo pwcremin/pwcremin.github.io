@@ -20,7 +20,9 @@ will get right into the code.
 
 * Get the starter code for a Python Flask server
 
-  * `$ git clone https://github.com/pwcremin/pythonstarter calltoarms`
+  * `$ git clone https://github.com/pwcremin/pythonstarter [your app name]`
+    * replace [your app name] with a unique name
+  * `$ cd [your app name]`
 
 
 Ok, we are almost ready to go, but first we need a Cloudant service from Bluemix
@@ -29,8 +31,7 @@ Ok, we are almost ready to go, but first we need a Cloudant service from Bluemix
 
 You can see from the output that Bluemix will give you plenty without there being any cost, so lets get this service going:
 
-* `cf create-service cloudantNoSQLDB Shared [your app name]-cloudantnosqldb`
-  * replace [your app name] with a unique name
+* `cf create-service cloudantNoSQLDB Shared [your app name]-cloudantNoSQLDB`
 
 
 Update your manifest.yml so that the service you just created will be bound to your app:
