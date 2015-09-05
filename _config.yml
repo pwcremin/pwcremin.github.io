@@ -1,0 +1,11 @@
+# Site settings
+title: Wallace Blog
+email: pwcremin@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: patrickcremin
+github_username:  pwcremin
+
+# Build settings
+markdown: kramdown
