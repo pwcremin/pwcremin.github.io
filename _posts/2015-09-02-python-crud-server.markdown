@@ -17,7 +17,7 @@ categories: bluemix python
 
 * Create and bind your Cloudant service
 
-  `$cf marketplace -s cloudantNoSQLDB`
+  `$ cf marketplace -s cloudantNoSQLDB`
 
   You can see from the output that Bluemix will give you plenty without there being any cost, so lets get this service going:
 
@@ -25,7 +25,7 @@ categories: bluemix python
   
   `$ cf bind-service [app-name] [app_name]-cloudantNoSQLDB`
   
-  TODO: may not need this - `cf restage [app-name]`
+  TODO: may not need this - `$ cf restage [app-name]`
 
 
 * Update your manifest.yml so that it knows you are using the new service:
@@ -43,6 +43,13 @@ categories: bluemix python
     memory: 128M
   {% endhighlight %}  
 
+* Get the starter code for a Python Flask server.  This starter code will have everything we
+  need to run our server in Bluemix.
+
+  `$ git clone https://github.com/pwcremin/pythonstarter [app_name]`
+
+  `$ cd [app_name]`
+  
 * Now all we have to do is push our app and we will have a hosted Python server!
 
   `$ cf push [app_name]`
@@ -86,15 +93,6 @@ categories: bluemix python
    
 ### Create the CRUD Rest API
 
-* Get the starter code for a Python Flask server.  This starter code will have everything we
-  need to run our server in Bluemix later.
-
-  `$ git clone https://github.com/pwcremin/pythonstarter [app_name]`
-
-  replace [app_name] with a unique name
-
-  `$ cd [app_name]`
-
 * Install Flask and Cloudant python modules.  You will need [pip](https://pip.pypa.io/en/latest/installing.html#install-or-upgrade-pip) if it is not already installed.
   These modules are already in your requirements.txt
   
@@ -106,7 +104,9 @@ Now we have a pretty basic Flask server. Run this locally and hit [http://localh
 
 {% highlight python %}
 import os
+import cloudant
 from flask import Flask, jsonify
+import json
 
 # Read port selected by the cloud for our application
 PORT = int(os.getenv('VCAP_APP_PORT', 8000))
@@ -122,6 +122,7 @@ def hello_world():
 if __name__ == '__main__':
   print("Start serving at port %i" % PORT)
   app.run('', PORT)
+
 {% endhighlight %}
 
 To implement the CRUD operations (create, read, update, delete), we will need to connect
@@ -169,7 +170,7 @@ def getCalls():
 {% endhighlight %}
 
 Run the server and navigate to [http://localhost:8000/api/v1/calls](http://localhost:8000/api/v1/calls).
-Ok, pretty cool that you can data from the server, but its not very interesting yet.
+Ok, pretty cool that you can pull data from the server, but its not very interesting yet.
 
 Using your browser is fine for GET calls, but we need something more powerful to test
 out the rest of our api. [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
@@ -196,7 +197,7 @@ def createCall():
 
     response = db.document('', params=call).post()
 
-    return response.content, response.status_code
+    return make_response(response.content, response.status_code, {'Content-Type': 'application/json'})
 {% endhighlight %}
 
 Change your Postman request to POST, and update the request like below.  Make sure to save this
@@ -215,9 +216,7 @@ def getCall(id):
     if response.status_code != 200:
         abort(response.status_code)
 
-    doc = json.loads(response.content)
-
-    return jsonify(doc), response.status_code
+    return make_response(response.content, response.status_code, {'Content-Type': 'application/json'})
 {% endhighlight %}
 
 At this point you should have the gist of how to create a REST api.  Lets go ahead
