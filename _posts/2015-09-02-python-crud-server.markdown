@@ -21,9 +21,9 @@ categories: bluemix python
 
   You can see from the output that Bluemix will give you plenty without there being any cost, so lets get this service going:
 
-  `cf create-service cloudantNoSQLDB Shared [app_name]-cloudantNoSQLDB`
+  `$ cf create-service cloudantNoSQLDB Shared [app_name]-cloudantNoSQLDB`
   
-  `cf bind-service [app-name] [app_name]-cloudantNoSQLDB`
+  `$ cf bind-service [app-name] [app_name]-cloudantNoSQLDB`
   
   TODO: may not need this - `cf restage [app-name]`
 
