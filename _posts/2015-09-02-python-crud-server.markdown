@@ -84,7 +84,6 @@ categories: bluemix python
   {% endhighlight %}  
   
    
-  
 ### Create the CRUD Rest API
 
 * Get the starter code for a Python Flask server.  This starter code will have everything we
