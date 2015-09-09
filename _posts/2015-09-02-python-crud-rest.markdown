@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Python CRUD REST api with Cloudant"
+title:  "Python CRUD REST API with Cloudant"
 date:   2015-09-5 18:01:11
 categories: bluemix python
 ---
 
-### Bluemix Setup 
-
-* [Sign up](https://console.ng.bluemix.net/ "Signup for Bluemix").  With Bluemix we can easily setup Python hosting and a Cloudant database.
+### Setup 
+  
+* [Sign up](https://ibm.biz/BluemixATX "Signup for Bluemix") with Bluemix so that we can easily setup Python hosting and a Cloudant database.
 
 * [Download](https://github.com/cloudfoundry/cli/releases) the Cloud Foundry command line interface.  This can be run in OSX Terminal or Win Command Prompt (Cygwin not supported)
 
@@ -15,53 +15,45 @@ categories: bluemix python
 
   `$ cf login`
 
+* Install [Python](https://www.python.org/downloads/) version 2.7.x.  You can check if you already have Python
+  installed with: 
+  
+  `$ python --version`
+ 
+* Get the starter code for a Python Flask server.  This starter code will have everything we
+  need to run our server in Bluemix. The [app_name] has to be unique.  Your name followed by
+  4 random numbers should do (e.g. patrick_5342)
+
+  `$ git clone https://github.com/pwcremin/pythonstarter [app_name]`
+
+  `$ cd [app_name]` 
+  
+* Now all we have to do is push our app and we will have a hosted Python server! This step will take a few minutes.
+
+  `$ cf push [app_name]`
+
+  Once the server has successfully started, navigate to [app_name].mybluemix.net
+
 * Create and bind your Cloudant service
 
   `$ cf marketplace -s cloudantNoSQLDB`
 
   You can see from the output that Bluemix will give you plenty without there being any cost, so lets get this service going:
 
-  `$ cf create-service cloudantNoSQLDB Shared [app_name]-cloudantNoSQLDB`
+  `$ cf create-service cloudantNoSQLDB Shared [app_name]-cloudantNoSQLDB`  
   
+* Bind the service to your app
+
   `$ cf bind-service [app-name] [app_name]-cloudantNoSQLDB`
   
-  TODO: may not need this - `$ cf restage [app-name]`
-
-
-* Update your manifest.yml so that it knows you are using the new service:
+  `$ cf restage [app-name]`
   
-  {% highlight yaml %}
-  applications:
-  - services:
-    - [app_name]-cloudantNoSQLDB
-  - disk_quota: 1024M
-    host: [app_name]
-    name: [app_name]
-    path: .
-    domain: mybluemix.net
-    instances: 1
-    memory: 128M
-  {% endhighlight %}  
-
-* Get the starter code for a Python Flask server.  This starter code will have everything we
-  need to run our server in Bluemix.
-
-  `$ git clone https://github.com/pwcremin/pythonstarter [app_name]`
-
-  `$ cd [app_name]`
-  
-* Now all we have to do is push our app and we will have a hosted Python server!
-
-  `$ cf push [app_name]`
-
-  Once the server has successfully started, navigate to [app_name].mybluemix.net
-
 * Get environment so that you can run locally
     
-  `$ cf env [app_name]`
+  `$ cf env [app_name]`  
   
-  Copy the VCAP_SERVICES block and stick it into a file named .env.vcap_services.json.
-  Add this file to both your .cfignore and .gitignore.
+  Copy the VCAP_SERVICES block and stick it into a file named .env.vcap_services.json.  
+  (protip: `$ cf env [app_name] > .env.vcap_services.json` and delete what you don't need)
   
   .env.vcap_services.json
   {% highlight json %}    
@@ -91,7 +83,7 @@ categories: bluemix python
   {% endhighlight %}  
   
    
-### Create the CRUD Rest API
+### Create the CRUD REST API
 
 * Install Flask and Cloudant python modules.  You will need [pip](https://pip.pypa.io/en/latest/installing.html#install-or-upgrade-pip) if it is not already installed.
   These modules are already in your requirements.txt
