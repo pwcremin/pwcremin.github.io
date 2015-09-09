@@ -48,7 +48,7 @@ categories: bluemix python
   
   `$ cf restage [app-name]`
   
-* Get environment so that you can run locally
+* Setup your local environment
     
   `$ cf env [app_name]`  
   
@@ -81,7 +81,10 @@ categories: bluemix python
    }
   }
   {% endhighlight %}  
-  
+
+* Run your server locally
+
+  `$ python server.py`
    
 ### Create the CRUD REST API
 
@@ -137,11 +140,14 @@ account = cloudant.Account(username)
 login = account.login(username, password)
 assert login.status_code == 200
 
-# create a database object
+# create the database object
 db = account.database('calls')
-# now, create the database on the server
-response = db.put() 
-print response.json()
+
+databases = json.loads(account.all_dbs().content)
+if 'calls' not in databases:
+    # now, create the database on the server
+    response = db.put()
+    print response.json()
 {% endhighlight %}
 
 Delete the boring HelloWorld code, and put this more exciting GET call in its place
