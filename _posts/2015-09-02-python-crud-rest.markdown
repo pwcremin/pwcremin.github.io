@@ -47,7 +47,14 @@ categories: bluemix python
   `$ cf bind-service [app-name] [app_name]-cloudantNoSQLDB`
   
   `$ cf restage [app-name]`
-  
+
+* Install Flask and Cloudant python modules.  You will need [pip](https://pip.pypa.io/en/latest/installing.html#install-or-upgrade-pip) if it is not already installed.
+  These modules are already in your requirements.txt
+
+  `$ pip install flask`
+
+  `$ pip install cloudant`
+   
 * Setup your local environment
     
   `$ cf env [app_name]`  
@@ -87,13 +94,6 @@ categories: bluemix python
   `$ python server.py`
    
 ### Create the CRUD REST API
-
-* Install Flask and Cloudant python modules.  You will need [pip](https://pip.pypa.io/en/latest/installing.html#install-or-upgrade-pip) if it is not already installed.
-  These modules are already in your requirements.txt
-  
-  `$ pip install flask`
-  
-  `$ pip install cloudant`
 
 Now we have a pretty basic Flask server. Run this locally and hit [http://localhost:8000](http://localhost:8000) to make sure it works.
 
@@ -248,3 +248,9 @@ def deleteCall(id):
 
     return '', response.status_code
 {% endhighlight %}
+
+* Push your awesome server up to Bluemix
+
+  `cf push [app_name]
+  
+  Now run test your REST calls against your Bluemix Python server
