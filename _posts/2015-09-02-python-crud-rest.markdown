@@ -166,6 +166,9 @@ def getCalls():
     return jsonify({'calls': docs}), response.status_code
 {% endhighlight %}
 
+Note the weird @app.route above your function.  This is a [route decorator](http://flask.pocoo.org/docs/0.10/api/#flask.Flask.route) and is used to let
+Python know that this function should be called for the given url.
+
 Run the server and navigate to [http://localhost:8000/api/v1/calls](http://localhost:8000/api/v1/calls).
 Ok, pretty cool that you can pull data from the server, but its not very interesting yet.
 
