@@ -59,8 +59,7 @@ categories: bluemix python
     
   `$ cf env [app_name]`  
   
-  Copy the VCAP_SERVICES block and stick it into a file named .env.vcap_services.json.  
-  (protip: `$ cf env [app_name] > .env.vcap_services.json` and delete what you don't need)
+  Copy the VCAP_SERVICES block and stick it into a file named .env.vcap_services.json.
   
   .env.vcap_services.json
   {% highlight json %}    
@@ -251,6 +250,6 @@ def deleteCall(id):
 
 * Push your awesome server up to Bluemix
 
-  `cf push [app_name]
+  `cf push [app_name]`
   
-  Now run test your REST calls against your Bluemix Python server
+  Now test your REST calls against your Bluemix Python server

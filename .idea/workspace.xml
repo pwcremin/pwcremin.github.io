@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0e127406-2495-4eda-895c-ed0e43630355" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/2015-09-02-python-crud-rest.markdown" afterPath="$PROJECT_DIR$/_posts/2015-09-02-python-crud-rest.markdown" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pwcremin.github.io.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,8 +42,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.91346157">
-              <caret line="255" column="65" selection-start-line="255" selection-start-column="65" selection-end-line="255" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.7980769">
+              <caret line="254" column="5" selection-start-line="254" selection-start-column="5" selection-end-line="254" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -498,8 +497,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91346157">
-          <caret line="255" column="65" selection-start-line="255" selection-start-column="65" selection-end-line="255" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.7980769">
+          <caret line="254" column="5" selection-start-line="254" selection-start-column="5" selection-end-line="254" selection-end-column="5" />
           <folding />
         </state>
       </provider>
