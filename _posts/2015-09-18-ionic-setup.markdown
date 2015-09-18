@@ -9,41 +9,53 @@ categories: bluemix ionic
 
   Follow the below instructions to get your environment setup for working with Bluemix and Ionic.
   Note that the `$` symbolizes that you are in the command line. Duh.
+
+* You will need the mobile SDKs for Android or iOS.  If you do not have one installed then grab the
+  Android SDK and get its install going right away (this will take... a while)
+    
+  Get the [Android SDK](https://developer.android.com/sdk/index.html#Other) zip 
   
+  [Android SDK install instructions](https://developer.android.com/sdk/installing/adding-packages.html)
+    
+* [Sign up](https://ibm.biz/BluemixATX "Signup for Bluemix") with Bluemix so that we can easily setup Python hosting and a Cloudant database.
+    
+* [Download](https://github.com/cloudfoundry/cli/releases) the Cloud Foundry command line interface.  This can be run in OSX Terminal or Win Command Prompt (Cygwin not supported)
+    
+  `$ cf api https://api.ng.bluemix.net`
+    
+  `$ cf login`
+
 * [Node](https://nodejs.org/en/) will need to be installed so that you can use npm
 
 * Install Cordova and Ionic
 
   `$ sudo npm install -g cordova ionic`
-  
-  `$ sudo npm install -g plugman`
-  
-  plugman is a command line tool to install plugins for cordova
-
-* You will need the mobile SDKs for Android or iOS.
-  
-  #Android:
-  
-    Windows: [installer_r24.3.4-windows.exe](http://dl.google.com/android/installer_r24.3.4-windows.exe)
-  
-    Mac OS X: [android-sdk_r24.3.4-macosx.zip](http://dl.google.com/android/android-sdk_r24.3.4-macosx.zip)
-
-  #Xcode
-   
-    It is best to have the full Xcode installed, but to save time just grab the command line tools:
-    
-    `$ xcode-select --install`
     
 * Get the code for the workshop.  If you already have git installed this is easy:
  
   `$ git clone https://github.com/cfjedimaster/IonicBluemixDemo`
   
   If you don't then simply [download the zip from here](https://github.com/cfjedimaster/IonicBluemixDemo/archive/master.zip)
+  
+  After cloning or unzipping you should now have a directory named IonicBluemixDemo with the code
+  
+* Install the node packages for the demo
+  
+  `$ cd IonicBluemixDemo/server`
+  
+  `$ npm install`
 
-* [Sign up](https://ibm.biz/BluemixATX "Signup for Bluemix") with Bluemix so that we can easily setup Python hosting and a Cloudant database.
+  `$ cd ..` just to get back to the root dir
+      
+* Now, this is jumping ahead a bit, but lets create our Ionic mobile project.  Make sure you are in 
+  the `/IonicBluemixDemo` root
+
+  `ionic start mymobileapp ./mobile/www`
+
+  `cd mymobileapp`
   
-* [Download](https://github.com/cloudfoundry/cli/releases) the Cloud Foundry command line interface.  This can be run in OSX Terminal or Win Command Prompt (Cygwin not supported)
+* Get the cordova plugings that you will need for the workshop
+
+  `cordova plugin add cordova-plugin-camera`
   
-    `$ cf api https://api.ng.bluemix.net`
-  
-    `$ cf login`
+  `cordova plugin add cordova-plugin-file-transfer`
