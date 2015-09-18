@@ -5,6 +5,7 @@ date:   2015-09-5 18:01:11
 categories: bluemix ionic
 ---
 
+[GET ME!](http://www.raymondcamden.com/2015/08/05/a-real-world-app-with-ibm-bluemix-node-cordova-and-ionichttp://www.raymondcamden.com/2015/08/05/a-real-world-app-with-ibm-bluemix-node-cordova-and-ionic)
 ### Setup 
 
   Follow the below instructions to get your environment setup for working with Bluemix and Ionic.
