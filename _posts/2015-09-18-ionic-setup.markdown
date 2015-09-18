@@ -12,7 +12,11 @@ categories: bluemix ionic
 
 * You will need the mobile SDKs for Android or iOS.  If you do not have one installed then grab the
   Android SDK and get its install going right away (this will take... a while)
-    
+  
+  Install the [Android Studio](https://developer.android.com/sdk/index.html)
+  
+  #or
+  
   Get the [Android SDK](https://developer.android.com/sdk/index.html#Other) zip 
   
   [Android SDK install instructions](https://developer.android.com/sdk/installing/adding-packages.html)
@@ -60,7 +64,7 @@ categories: bluemix ionic
   
   `cordova plugin add cordova-plugin-file-transfer`
 
-* Special note for you Xcode users.  Edit the info.plist and add this dict
+* Special note for you Xcode users.  Edit the info.plist and add this key
 
 {% highlight xml %}
 <key>NSAppTransportSecurity</key>
