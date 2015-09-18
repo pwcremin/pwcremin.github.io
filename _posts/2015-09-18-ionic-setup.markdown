@@ -17,7 +17,7 @@ categories: bluemix ionic
   
   [Android SDK install instructions](https://developer.android.com/sdk/installing/adding-packages.html)
     
-* [Sign up](https://ibm.biz/BluemixATX "Signup for Bluemix") with Bluemix so that we can easily setup Python hosting and a Cloudant database.
+* [Sign up](https://ibm.biz/BluemixATX "Signup for Bluemix") with Bluemix so that we can use the Visual Recognition service.
     
 * [Download](https://github.com/cloudfoundry/cli/releases) the Cloud Foundry command line interface.  This can be run in OSX Terminal or Win Command Prompt (Cygwin not supported)
     
