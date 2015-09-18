@@ -59,3 +59,25 @@ categories: bluemix ionic
   `cordova plugin add cordova-plugin-camera`
   
   `cordova plugin add cordova-plugin-file-transfer`
+
+* Special note for you Xcode users.  Edit the info.plist and add this dict
+
+{% highlight xml %}
+<key>NSAppTransportSecurity</key>
+	<dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost:3000</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.1</string>
+			</dict>
+		</dict>
+	</dict>
+{% endhighlight %}
