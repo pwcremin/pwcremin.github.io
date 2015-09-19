@@ -5,7 +5,7 @@ date:   2015-09-5 18:01:11
 categories: bluemix ionic
 ---
 
-These following are setup instructions for [Raymond Camden's Blog](http://www.raymondcamden.com/2015/08/05/a-real-world-app-with-ibm-bluemix-node-cordova-and-ionichttp://www.raymondcamden.com/2015/08/05/a-real-world-app-with-ibm-bluemix-node-cordova-and-ionic)
+The following are setup instructions for [Raymond Camden's Blog](http://www.raymondcamden.com/2015/08/05/a-real-world-app-with-ibm-bluemix-node-cordova-and-ionichttp://www.raymondcamden.com/2015/08/05/a-real-world-app-with-ibm-bluemix-node-cordova-and-ionic)
 about creating a Bluemix enabled Ionic mobile app.
 
 ### Setup 
