@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "Python CRUD REST API with Cloudant"
 date:   2015-09-5 18:01:11
 categories: bluemix python

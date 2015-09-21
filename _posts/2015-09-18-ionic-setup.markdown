@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "Ionic Environment Setup"
 date:   2015-09-5 18:01:11
 categories: bluemix ionic
