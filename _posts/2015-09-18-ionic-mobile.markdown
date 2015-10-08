@@ -161,7 +161,7 @@ Blow away whatever is in public/index.html and put this html in there instead
 </form>
 {% endhighlight %}
 
-We need to add 2 more packages to our server; Multer for file uploads, and the Watson Developer Cloud for Visual Recognition.
+We need to add 2 more packages to our server; formidable for file uploads, and the Watson Developer Cloud for Visual Recognition.
 Update your package.json with this
 
 {% highlight json %}
