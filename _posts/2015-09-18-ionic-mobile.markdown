@@ -11,8 +11,7 @@ about creating a Bluemix enabled Ionic mobile app.
 
 ### Setup 
 
-  Follow the below instructions to get your environment setup for working with Bluemix and Ionic.
-  Note that the `$` symbolizes that you are in the command line. Duh.
+  Follow the below instructions to get your environment setup for working with Bluemix and Ionic.  
 
 * You will need the mobile SDKs for Android or iOS.  If you do not have one installed then grab the
   Android SDK and get its install going right away (this will take... a while)
