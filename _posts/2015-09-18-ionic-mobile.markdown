@@ -199,6 +199,40 @@ Copy the below code and paste it in at line 52.  This creates a new route for us
 send the uploaded file to our Visual Recognition service for analysis.
 
 {% highlight javascript %}
+var formidable = require('formidable');
+var watson = require('watson-developer-cloud');
+var fs = require('fs');
+
+var visual_recognition = watson.visual_recognition({
+    version: 'v1',
+    use_vcap_services: true
+});
+
+app.post('/upload', function(req, result) {
+
+    var form = new formidable.IncomingForm();
+    form.keepExtensions = true;
+
+    form.parse(req, function(err, fields, files) {
+        var params = {
+            image_file: fs.createReadStream(files.image.path)
+        };
+
+        visual_recognition.recognize(params, function(err, res) {
+            if (err)
+                res.send(err);
+            else {
+                var labels = res.images[0].labels.map(function(label)
+                {
+                    return label.label_name;
+                });
+
+                result.send(labels);
+            }
+        });
+
+    });
+});
 {% endhighlight %}
 
 Go to your webpage and lets upload an image again.  Make sure to pick a photo and not a graphic or drawing.
