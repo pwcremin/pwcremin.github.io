@@ -42,32 +42,19 @@ about creating a Bluemix enabled Ionic mobile app.
     
 * Get the code for the workshop.  If you already have git installed this is easy:
  
-  `git clone https://github.com/cfjedimaster/IonicBluemixDemo`
+  `git clone https://github.com/pwcremin/IonicWatsonDemo`
   
-  If you don't then simply [download the zip from here](https://github.com/cfjedimaster/IonicBluemixDemo/archive/master.zip)
+  If you don't then simply [download the zip from here](https://github.com/pwcremin/IonicWatsonDemo/archive/master.zip)
   
-  After cloning or unzipping you should now have a directory named IonicBluemixDemo with the code
+  After cloning or unzipping you should now have a directory named IonicWatsonDemo with the code
   
 * Install the node packages for the demo
   
-  `cd IonicBluemixDemo/server`
+  `cd IonicWatsonDemo/server`
   
   `npm install`
 
   `cd ..` just to get back to the root dir
-      
-* Now, this is jumping ahead a bit, but lets create our Ionic mobile project.  Make sure you are in 
-  the `/IonicBluemixDemo` root
-
-  `ionic start mymobileapp ./mobile/www`
-
-  `cd mymobileapp`
-  
-* Get the cordova plugings that you will need for the workshop
-
-  `cordova plugin add cordova-plugin-camera`
-  
-  `cordova plugin add cordova-plugin-file-transfer`
 
 ### Create your Bluemix app and bind the Visual Recognition service
 
@@ -239,9 +226,56 @@ Watson will respond with a list of labels that it thinks fits the photo you uplo
 
 ### Build an Ionic app to hit your server
 
-Refer back to [Camden's Blog](http://www.raymondcamden.com/2015/08/05/a-real-world-app-with-ibm-bluemix-node-cordova-and-ionic) for the mobile instructions.
+* Lets create our Ionic mobile project.  Make sure you are in the `/IonicWatsonDemo` root
 
-* Special note for you Xcode users.  Edit the info.plist and add this key
+  `ionic start mymobileapp ./mobile/www`
+
+  `cd mymobileapp`
+
+* Let Ionic know what platform you are using (this install could take a few minutes)
+  
+  `ionic platform add [ios|android]`
+  
+* Get the cordova plugings that you will need for the workshop
+
+  `cordova plugin add cordova-plugin-camera`
+  
+  `cordova plugin add cordova-plugin-file-transfer`
+
+
+Really getting into the anotomy of an Ionic app is a bit outside the scope of this workshop.
+However, the code you grabbed from git is for a single page Ionic app, and it contains no nagivation,
+which makes things a bit simpler.
+ 
+If you open up www/index.html, you will see that your javascript is loaded from www/js/app.js, and this is 
+the main code file for your application.
+
+{% highlight html %}
+    <!-- LN:15 www/index.html -->
+    <script src="js/app.js"></script>
+  </head>
+{% endhighlight %}
+
+Now open up www/js/app.js.  If you take a look at line 35, you will see that your app is currently 
+hitting localhost.
+
+{% highlight javascript %}
+    // LN:35 www/js/app.js
+    ft.upload(fileUri, "http://localhost:3000/uploadpic", function(r) {
+{% endhighlight %}
+
+But hey! We have a running server in the cloud.  Lets hit that instead.  Update this line of code
+to hit your app's route  Don't forget to get rid of the port... just need the route. Here is an example
+
+{% highlight javascript %}
+    // LN:35 www/js/app.js
+    ft.upload(fileUri, "http://boomersooner.mybluemix.net/uploadpic", function(r) {
+{% endhighlight %}
+
+
+* For you xcode users, iOS 9 forces you to use https.  We want to block that for our little tutorial.
+In xcode open platforms/ios/HelloCordova.xcodeproj.  Once the project is open, right click on Resources/HelloCordova-Info.plist
+and select 'Open as -> Source Code'. You want to edit this puppy and add the below under the first `<dict>`.
 
 {% highlight xml %}
 <key>NSAppTransportSecurity</key>
@@ -251,3 +285,20 @@ Refer back to [Camden's Blog](http://www.raymondcamden.com/2015/08/05/a-real-wor
       <true/>
 </dict>
 {% endhighlight %}
+
+It will look something like this after the insert
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <!--Include to allow all connections (DANGER)-->
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+{% endhighlight %}
+
+* Now run your project from xcode and watch your mobile app connect to your Bluemix hosted server!
