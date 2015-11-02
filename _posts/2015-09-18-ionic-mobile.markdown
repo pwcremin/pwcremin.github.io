@@ -141,7 +141,7 @@ We don't care about Bob Hope, we want to upload a file to our server and send it
 Blow away whatever is in public/index.html and put this html in there instead
 
 {% highlight html %}
-<form action="/upload" method="POST" enctype="multipart/form-data">
+<form action="/uploadpic" method="POST" enctype="multipart/form-data">
   *in a robot voice* Select image to upload!<br>
   <input type="file" name="image"> 
   <input type="submit" value="Upload Image">
@@ -194,7 +194,7 @@ var visual_recognition = watson.visual_recognition({
     use_vcap_services: true
 });
 
-app.post('/upload', function(req, result) {
+app.post('/uploadpic', function(req, result) {
 
     var form = new formidable.IncomingForm();
     form.keepExtensions = true;
