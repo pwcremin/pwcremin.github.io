@@ -213,7 +213,7 @@ app.post('/uploadpic', function(req, result) {
                     return label.label_name;
                 });
 
-                result.send(labels);
+                res.send(labels);
             }
         });
 
