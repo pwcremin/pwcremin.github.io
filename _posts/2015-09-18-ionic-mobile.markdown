@@ -206,14 +206,14 @@ app.post('/uploadpic', function(req, result) {
 
         visual_recognition.recognize(params, function(err, res) {
             if (err)
-                res.send(err);
+                result.send(err);
             else {
                 var labels = res.images[0].labels.map(function(label)
                 {
                     return label.label_name;
                 });
 
-                res.send(labels);
+                result.send(labels);
             }
         });
 
