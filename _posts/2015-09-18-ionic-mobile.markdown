@@ -36,9 +36,9 @@ about creating a Bluemix enabled Ionic mobile app.
 
 * [Node](https://nodejs.org/en/) will need to be installed so that you can use npm
 
-* Install Cordova and Ionic
+* Install Cordova and Ionic. NOTE! If you are using a Mac you should put `sudo` in front of the below command.
 
-  `sudo npm install -g cordova ionic`
+  `npm install -g cordova ionic`
     
 * Get the code for the workshop.  If you already have git installed this is easy:
  
@@ -201,7 +201,7 @@ app.post('/uploadpic', function(req, result) {
 
     form.parse(req, function(err, fields, files) {
         var params = {
-            image_file: fs.createReadStream(files.image.path)
+            images_file: fs.createReadStream(files.image.path)
         };
 
         visual_recognition.recognize(params, function(err, res) {
