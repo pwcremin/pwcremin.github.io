@@ -13,7 +13,7 @@ Full source for this demo is [available on Github](https://github.com/pwcremin/d
 
 #### Create your Watson Discovery service
 
-Log into Bluemix, go to Catalog and, under Services, select the Watson services.  Here you see a list of all Watson services that you can use.  We want Discovery so click on it and then hit the Create Button
+Log into Bluemix, go to Catalog|Services|Watson.  Here you see a list of all Watson services that you can use.  Choose Discovery|Create.
 
 <div>
 <img src="/assets/discovery-bitcoin/catalaog.png" width="200"/>
@@ -23,15 +23,15 @@ Log into Bluemix, go to Catalog and, under Services, select the Watson services.
 <img src="/assets/discovery-bitcoin/discovery_service.png" width="350"/>
 </div>
 
-Go to the menu, select Services, and then Dashboard.  Here you will see your newly created Discovery service.  Click on it.
+Go to the menu, select Services|Dashboard.  Here you will see your newly created Discovery service.  Click on it.
 
 <img src="/assets/discovery-bitcoin/view_service.png" width="350"/>
 
-In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  You will need your username and password, so save this data.
+In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  Save your username and password.
 
-Now lets get setup for Watson News.  Click on Manage and then Launch Tool.  
+Now lets setup Watson News.  Click on Manage|Launch Tool.  
 
-Using Discovery you can upload your own files, which can then be searched using the power of Discovery, or search the predefined dataset of Discovery News, which is what we are going to do.
+Using Discovery you can upload your own files, which can then be searched using the Discovery, or search the predefined dataset of Discovery News, which is what we are going to do.
 
 <img src="/assets/discovery-bitcoin/your_data.png" width="350"/>
 
@@ -181,7 +181,7 @@ discovery.query( {
 
 The ',' is the boolean operater 'and'.  You can find a list of <a href="https://www.ibm.com/watson/developercloud/doc/discovery/query-reference.html#parameter-descriptions">all query operators here</a>.
 
-Run the query again and you will see that the result now contains stories that include both Bitcoin and China. Going through the results you see that there are items you really do not care about.  If you look at the 'taxonomy' of a result, Discovery gives you a breakdown of the categories the story belongs to.  Some of these categories we do not care about, and do not want them in our results.  For instance, I was getting stories about Pets.  Definitely not the kind of results that I want, so lets exclude those.  I also see that 'finance' is an option.  I definitely want those.  Also, I am not interested in old stories so lets just get then items that are a few days old.  Note that 'yyyymmdd' is not some special search marker.  Its simple a value that was in our results that we can now use to create a better query.  You can do this with any value that you wish.
+Run the query again and you will see that the result now contains stories that include both Bitcoin and China. Going through the results you see that there are items you really do not care about.  If you look at the 'taxonomy' of a result, Discovery gives you a breakdown of the categories the story belongs to.  Some of these categories we do not care about, and do not want them in our results.  For instance, I was getting stories about Pets.  Although interestig to many, it is definitely not the kind of results that I want, so lets exclude those.  I also see that 'finance' is an option.  I definitely want those.  Also, I am not interested in old stories so let's just get the items that are a few days old.  Note that 'yyyymmdd' is not some special search marker.  It's simply a value that was in our results that we can now use to create a better query.  You can do this with any value that you wish.
 
 ```javascript
 discovery.query( {
@@ -195,7 +195,7 @@ discovery.query( {
 }, 
 ```
 
-Run your server again and you see that we are getting much more relevant information.  However, lots of the stories seem to be the same.  Not a big suprise here, these financial blogs seem to all copy the same big story. Lets group together stories with the same title using 'aggregate.  Also, lets tell the query to only return the values that we want using 'return'
+Run your server again and you see that we are getting much more relevant information.  However, lots of the stories seem to be the same.  Not a big suprise here as these financial blogs seem to all copy the same big story. Lets group together stories with the same title using 'aggregate'.  Also, lets tell the query to only return the values that we want using 'return'.
 
 ```javascript
 discovery.query( {
@@ -213,7 +213,7 @@ discovery.query( {
 }, 
 ```
 
-We are now getting back a dataset that we can do something with. The sentiment score is especially handy. As expected, a positive or negative score expresses the general sentiment of the article.  The bigger the number, the better/worse the sentiment.  Lets add an aggregation that will tell us the average sentiment of the results.
+We are now getting back a dataset that we can do something with. The sentiment score (-1 to 1) is especially handy. As expected, a positive or negative score expresses the general sentiment of the article. Let's add an aggregation that will tell us the average sentiment of the results.
 
 ```javascript
 discovery.query( {
@@ -231,7 +231,7 @@ discovery.query( {
 }, 
 ```
 
-At the time of writing, I received the following results
+At the time of writing, I received the following results:
 
 ```json
  "aggregations": [
