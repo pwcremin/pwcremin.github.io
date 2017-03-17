@@ -34,7 +34,7 @@ Click on Watson News and you will see the environment id and collection id.  Sav
 
 #### Setup Node Express
 
-We are going to create a Node Express server with routes that return the results of our queries.  I am going to assume that you know how to setup your environment for Node and get an Express server going.  In addition we are going to grap the watson-developer-cloud package which will allow us to easily make call to the Discovery service.
+We are going to create a Node Express server with routes that return the results of our queries.  I am going to assume that you know how to setup your environment for Node and get an Express server going.  In addition we are going to grap the watson-developer-cloud package which will allow us to easily make calls to the Discovery service.
 
 ```
 npm install watson-developer-cloud --save
@@ -56,7 +56,8 @@ var discovery = new DiscoveryV1( {
 
 ### Creating your first query
 
-Lets first do a simple query that just return all articles that have Bitcoin in their text.
+First do a simple query that just returns all articles that have Bitcoin in their text.
+
 ```javascript
 var discovery = new DiscoveryV1( {
     username: "xxx",
@@ -160,7 +161,7 @@ Run your server and you will see output like below:
         "keywords": [	
 ```
 
-The resulting dataset contains all news stories with Bitcoin in the text (default count of 10 results).  We are interest in stories that also involve China, so lets update our query.
+The resulting dataset contains all news stories with Bitcoin in the text (default count of 10 results).  We are interested in stories that also involve China, so lets update our query.
 
 
 ```javascript
@@ -173,9 +174,9 @@ discovery.query( {
 }, 
 ```
 
-The ',' operator is the boolean operater and.  You can find a list of (all query operators here)[https://www.ibm.com/watson/developercloud/doc/discovery/query-reference.html#parameter-descriptions].
+The ',' is the boolean operater 'and'.  You can find a list of (all query operators here)[https://www.ibm.com/watson/developercloud/doc/discovery/query-reference.html#parameter-descriptions].
 
-Run the query again and you will see that the result now contains stories that include both Bitcoin and China. Going through the results you will see that there are items you really do not care about.  If you look at the 'taxonomy' of a result, Discovery gives you a breakdown of the categories the story belongs to.  Some of these categories we do not care about, and do not want them in our results.  For instance, I was getting stories about Pets.  Definitely not the kind of results that I want, so lets exclude those.  I also see that 'finance' is an option.  I definitely want those.  Also, I am not interested in old stories so lets just get then items that are a few days old.  Note that 'yyyymmdd' is not some special search marker.  Its simple a value that was in our results that we can now use to create a better query.  You can do this with any value that you wish.
+Run the query again and you will see that the result now contains stories that include both Bitcoin and China. Going through the results you see that there are items you really do not care about.  If you look at the 'taxonomy' of a result, Discovery gives you a breakdown of the categories the story belongs to.  Some of these categories we do not care about, and do not want them in our results.  For instance, I was getting stories about Pets.  Definitely not the kind of results that I want, so lets exclude those.  I also see that 'finance' is an option.  I definitely want those.  Also, I am not interested in old stories so lets just get then items that are a few days old.  Note that 'yyyymmdd' is not some special search marker.  Its simple a value that was in our results that we can now use to create a better query.  You can do this with any value that you wish.
 
 ```javascript
 discovery.query( {
@@ -189,7 +190,7 @@ discovery.query( {
 }, 
 ```
 
-Run your server again and you see that we are getting much more relevant information.  However, lots of the stories seem to be the same.  Not a big suprise here, these financial blogs seems to all copy the big story.  It is likely that if many people are writing about the same story, it is probably something we will care about.  Lets group together stories with the same title using 'aggregate.  Also, lets tell the query to only return the values that we care about using 'return'
+Run your server again and you see that we are getting much more relevant information.  However, lots of the stories seem to be the same.  Not a big suprise here, these financial blogs seems to all copy the big story.  It is likely that if many people are writing about the same story, it is probably something we will care about.  Lets group together stories with the same title using 'aggregate.  Also, lets tell the query to only return the values that we want using 'return'
 
 ```javascript
 discovery.query( {
@@ -207,7 +208,7 @@ discovery.query( {
 }, 
 ```
 
-We are now getting back a dataset that we can do something with. The sentiment score is especially handy. As expected, a positive or negative score expresses the general sentiment of the artcile.  The bigger the number, the better/worse the sentiment.  Lets add an aggregation that will tell of the average sentiment of the results.
+We are now getting back a dataset that we can do something with. The sentiment score is especially handy. As expected, a positive or negative score expresses the general sentiment of the article.  The bigger the number, the better/worse the sentiment.  Lets add an aggregation that will tell of the average sentiment of the results.
 
 ```javascript
 discovery.query( {
@@ -284,14 +285,13 @@ At the time of writing, I received the following results
   ]
 ```
 
-A negative score of -0.45!  The sentiment score ranges from -1 to 1, so that is pretty bad.  Of course, right now Bitcoin is getting hammered by the possibility of new regulations from China so this score is what I was expecting to get.
+A negative score of -0.45.  The sentiment score ranges from -1 to 1, so that is pretty bad.  Of course, right now Bitcoin is getting hammered by the possibility of new regulations from China so this score is what I was expecting to get.  This result is also skewed by the large number of articles on the same title "Bitcoin could be on the edge of a cliff".  Something you may or may not want.
 
-Finally, let go ahead and return these results:
+Finally, lets go ahead and return these results:
 
 ```javascript
 router.get( '/news', function ( req, res, next )
 {
-
     discovery.query( {
         environment_id: '9d72194c-bfa5-41ec-b47b-00b7a1943612',
         collection_id: '8854ecb2-6c2b-4bfd-acca-8333a9f4b64e',
@@ -310,6 +310,7 @@ router.get( '/news', function ( req, res, next )
         if ( err )
         {
             console.error( err );
+            res.status( 500 ).json( err )
         }
         else
         {
