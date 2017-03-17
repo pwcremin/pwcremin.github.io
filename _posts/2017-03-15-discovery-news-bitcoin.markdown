@@ -15,13 +15,13 @@ Full source for this demo is [available on Github](https://github.com/pwcremin/d
 
 Log into Bluemix, go to Catalog|Services|Watson.  Here you see a list of all Watson services that you can use.  Choose Discovery|Create.
 
-<div>
+<br>
 <img src="/assets/discovery-bitcoin/catalaog.png" width="200"/>
 <br><br>
 <img src="/assets/discovery-bitcoin/watson-service.png" width="200"/>
 <br><br>
 <img src="/assets/discovery-bitcoin/discovery_service.png" width="350"/>
-</div>
+<br>
 
 Go to the menu <img src="/assets/discovery-bitcoin/menu.png" width="30"/>, select Services|Dashboard.  Here you will see your newly created Discovery service.  Click on it.
 <br>
