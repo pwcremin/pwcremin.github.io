@@ -39,7 +39,7 @@ Click on Watson News and you will see the environment id and collection id.  Sav
 
 #### Setup Node Express
 
-We are going to create a Node Express server with routes that return the results of our queries.  I am going to assume that you know how to setup your environment for Node and get an Express server going.  In addition we are going to grap the watson-developer-cloud package which will allow us to easily make calls to the Discovery service.
+We are going to create a Node Express server with a route that will return the results of our query.  I am going to assume that you know how to setup your environment for Node and get an Express server going (If you want my Express server, you can [download the source](https://github.com/pwcremin/discovery-news-bitcoin-watcher) and then run 'npm install'). In addition we need to grab the watson-developer-cloud package which will allow us to easily make calls to the Discovery service.
 
 ```
 npm install watson-developer-cloud --save
