@@ -12,8 +12,10 @@ For the past year, the biggest movements in Bitcoin have been caused by China.  
 
 #### Create your Bluemix app and bind the Watson Discovery service
 
-Log into Bluemix, go to Catalog, and, under Services, select the Watson services
+Log into Bluemix, go to Catalog, and, under Services, select the Watson services.  Here you see a list of all Watson services that you can use.  We want Discovery so click on it and then hit the Create Button
 
+![](/assets/discovery-bitcoin/catalog.png)
+![](/assets/discovery-bitcoin/watson_service.png)
 ![](/assets/discovery-bitcoin/discovery_service.png)
 
 In order to access this service we are going to need xxx.  Go to the menu and select Services and then Dashboard.  Here you will see your newly created Discovery service.  Click on it.
