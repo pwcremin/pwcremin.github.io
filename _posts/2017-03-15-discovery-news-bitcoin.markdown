@@ -17,9 +17,9 @@ Log into Bluemix, go to Catalog, and, under Services, select the Watson services
 
 <div>
 <img src="/assets/discovery-bitcoin/catalaog.png" width="200"/>
-<br>
+<br><br>
 <img src="/assets/discovery-bitcoin/watson-service.png" width="200"/>
-<br>
+<br><br>
 <img src="/assets/discovery-bitcoin/discovery_service.png" width="350"/>
 </div>
 
