@@ -36,7 +36,7 @@ In your services you will see one with its Service Offering of Discovery.  Click
 <br>
 <br>
 
-In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  Save your username and password.
+In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  Copy your username and password to somewhere. You will need them later.
 <br>
 <br>
 <img src="/assets/discovery-bitcoin/service-credentials.png" width="450"/>
