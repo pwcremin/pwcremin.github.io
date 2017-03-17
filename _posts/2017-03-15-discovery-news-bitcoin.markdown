@@ -32,7 +32,7 @@ Go to the menu <img src="/assets/discovery-bitcoin/menu.png" width="30"/>, selec
 In your services you will see one with its Service Offering of Discovery.  Click on this service
 <br>
 <br>
-<img src="/assets/discovery-bitcoin/view_service.png" width="450"/>
+<img src="/assets/discovery-bitcoin/click-on-service.png" width="450"/>
 <br>
 <br>
 
