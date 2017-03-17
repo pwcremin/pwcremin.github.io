@@ -18,12 +18,12 @@ Log into Bluemix, go to Catalog, and, under Services, select the Watson services
 
 div {
     text-align: justify;
+      margin-left:auto;
+  margin-right:auto;
 }
 
 div img {
     display:block;
-  margin-left:auto;
-  margin-right:auto;
 }
 
 div:after {
