@@ -50,7 +50,7 @@ Now lets setup Watson News.  Click on Manage|Launch Tool.
 <br>
 <br>
 
-Using Discovery you can upload your own files, which can then be searched using the Discovery, or search the predefined dataset of Discovery News, which is what we are going to do.
+Using Discovery you can upload your own files, which can then be searched using Discovery, or search the predefined dataset of Discovery News, which is what we are going to do.
 <br>
 <br>
 <img src="/assets/discovery-bitcoin/your_data.png" width="450"/>
