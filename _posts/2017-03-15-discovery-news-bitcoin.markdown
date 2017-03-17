@@ -44,6 +44,12 @@ In order to access this service we are going to need the service credentials. Cl
 <br>
 Now lets setup Watson News.  Click on Manage|Launch Tool.  
 
+<br>
+<br>
+<img src="/assets/discovery-bitcoin/view_service_manage.png" width="450"/>
+<br>
+<br>
+
 Using Discovery you can upload your own files, which can then be searched using the Discovery, or search the predefined dataset of Discovery News, which is what we are going to do.
 <br>
 <br>
