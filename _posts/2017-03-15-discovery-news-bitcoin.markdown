@@ -10,7 +10,7 @@ For the past year, the biggest movements in Bitcoin have been caused by China.  
 
 ### Setup 
 
-### Create your Bluemix app and bind the Watson Discovery service
+# Create your Bluemix app and bind the Watson Discovery service
 
 Log into Bluemix, go to Catalog, and, under Services, select the Watson services
 
@@ -54,7 +54,7 @@ var discovery = new DiscoveryV1( {
 
 ### Creating your first query
 
-Lets first do a simple query that just return all articles that have Bitcoing in their text.
+Lets first do a simple query that just return all articles that have Bitcoin in their text.
 ```javascript
 var discovery = new DiscoveryV1( {
     username: "xxx",
