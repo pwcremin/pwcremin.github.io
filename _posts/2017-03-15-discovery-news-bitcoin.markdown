@@ -32,14 +32,14 @@ Go to the menu <img src="/assets/discovery-bitcoin/menu.png" width="30"/>, selec
 In your services you will see one with its Service Offering of Discovery.  Click on this service
 <br>
 <br>
-<img src="/assets/discovery-bitcoin/view_service.png" width="200"/>
+<img src="/assets/discovery-bitcoin/view_service.png" width="450"/>
 <br>
 <br>
 
 In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  Save your username and password.
 <br>
 <br>
-<img src="/assets/discovery-bitcoin/service-credentials.png" width="350"/>
+<img src="/assets/discovery-bitcoin/service-credentials.png" width="450"/>
 <br>
 <br>
 Now lets setup Watson News.  Click on Manage|Launch Tool.  
@@ -47,7 +47,7 @@ Now lets setup Watson News.  Click on Manage|Launch Tool.
 Using Discovery you can upload your own files, which can then be searched using the Discovery, or search the predefined dataset of Discovery News, which is what we are going to do.
 <br>
 <br>
-<img src="/assets/discovery-bitcoin/your_data.png" width="350"/>
+<img src="/assets/discovery-bitcoin/your_data.png" width="50"/>
 <br>
 <br>
 Click on Watson News and you will see the environment id and collection id.  Save this data as we will need it when telling the Discovery API what dataset we are querying.
