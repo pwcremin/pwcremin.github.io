@@ -13,7 +13,7 @@ Full source for this demo is [available on Github](https://github.com/pwcremin/d
 
 #### Create your Watson Discovery service
 
-Log into Bluemix, go to Catalog|Services|Watson.  Here you see a list of all Watson services that you can use.  Choose Discovery|Create.
+Log into [Bluemix](https://console.ng.bluemix.net), go to Catalog|Services|Watson.  Here you see a list of all Watson services that you can use.  Choose Discovery|Create.
 <br>
 <br>
 <img src="/assets/discovery-bitcoin/catalaog.png" width="200"/>
