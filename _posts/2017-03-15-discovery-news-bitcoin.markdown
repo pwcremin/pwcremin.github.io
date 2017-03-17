@@ -39,7 +39,7 @@ In your services you will see one with its Service Offering of Discovery.  Click
 In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  Save your username and password.
 <br>
 <br>
-<img src="/assets/discovery-bitcoin/service-credentials.png" width="200"/>
+<img src="/assets/discovery-bitcoin/service-credentials.png" width="350"/>
 <br>
 <br>
 Now lets setup Watson News.  Click on Manage|Launch Tool.  
