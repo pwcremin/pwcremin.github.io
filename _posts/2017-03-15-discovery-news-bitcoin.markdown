@@ -11,7 +11,7 @@ For the past year, the biggest movements in Bitcoin have been caused by China.  
 Full source for this demo is [available on Github](https://github.com/pwcremin/discovery-news-bitcoin-watcher)
 ### Setup 
 
-#### Create your Bluemix app and bind the Watson Discovery service
+#### Create your Watson Discovery service
 
 Log into Bluemix, go to Catalog, and, under Services, select the Watson services.  Here you see a list of all Watson services that you can use.  We want Discovery so click on it and then hit the Create Button
 
