@@ -25,10 +25,12 @@ Log into Bluemix, go to Catalog|Services|Watson.  Here you see a list of all Wat
 
 Go to the menu <img src="/assets/discovery-bitcoin/menu.png" width="30"/>, select Services|Dashboard.  Here you will see your newly created Discovery service.  Click on it.
 <br>
+<br>
 <img src="/assets/discovery-bitcoin/service-dashboard.png" width="200"/>
 <br>
 
 In your services you will see one with its Service Offering of Discovery.  Click on this service
+<br>
 <br>
 <img src="/assets/discovery-bitcoin/view_service.png" width="200"/>
 <br>
