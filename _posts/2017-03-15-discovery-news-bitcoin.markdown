@@ -14,17 +14,13 @@ For the past year, the biggest movements in Bitcoin have been caused by China.  
 
 Log into Bluemix, go to Catalog, and, under Services, select the Watson services.  Here you see a list of all Watson services that you can use.  We want Discovery so click on it and then hit the Create Button
 
-<img src="/assets/discovery-bitcoin/catalaog.png" width="300"/>
-<img src="/assets/discovery-bitcoin/watson-service.png" width="300"/>
-<img src="/assets/discovery-bitcoin/discovery_service.png" width="450"/>
-
-![](/assets/discovery-bitcoin/catalaog.png)
-![](/assets/discovery-bitcoin/watson-service.png)
-![](/assets/discovery-bitcoin/discovery_service.png)
+<img src="/assets/discovery-bitcoin/catalaog.png" width="200"/>
+<img src="/assets/discovery-bitcoin/watson-service.png" width="200"/>
+<img src="/assets/discovery-bitcoin/discovery_service.png" width="350"/>
 
 Go to the menu, select Services, and then Dashboard.  Here you will see your newly created Discovery service.  Click on it.
 
-![](/assets/discovery-bitcoin/view_service.png)
+<img src="/assets/discovery-bitcoin/view_service.png" width="350"/>
 
 In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  You will need your username and password, so save this data.
 
@@ -32,7 +28,7 @@ Now lets get setup for Watson News.  Click on Manage and then Launch Tool.
 
 Using Discovery you can upload your own files, which can then be searched using the power of Discovery, or search the predefined dataset of Discovery News, which is what we are going to do.
 
-![](/assets/discovery-bitcoin/your_data.png)
+<img src="/assets/discovery-bitcoin/your_data.png" width="350"/>
 
 Click on Watson News and you will see the environment id and collection id.  Save this data as we will need it when telling the Discovery API what dataset we are querying.
 
