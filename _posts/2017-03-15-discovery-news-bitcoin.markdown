@@ -10,7 +10,7 @@ For the past year, the biggest movements in Bitcoin have been caused by China.  
 
 ### Setup 
 
-# Create your Bluemix app and bind the Watson Discovery service
+#### Create your Bluemix app and bind the Watson Discovery service
 
 Log into Bluemix, go to Catalog, and, under Services, select the Watson services
 
@@ -30,7 +30,7 @@ Using Discovery you can upload your own files, which can then be searched using 
 
 Click on Watson News and you will see the environment id and collection id.  Save this data as we will need it when telling the Discovery API what dataset we are querying.
 
-### Setup Node Express
+#### Setup Node Express
 
 We are going to create a Node Express server with routes that return the results of our queries.  I am going to assume that you know how to setup your environment for Node and get an Express server going.  In addition we are going to grap the xx package which will allow us to easily make call to the Discovery service.
 
