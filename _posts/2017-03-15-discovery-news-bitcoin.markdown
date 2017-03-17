@@ -174,7 +174,7 @@ discovery.query( {
 }, 
 ```
 
-The ',' is the boolean operater 'and'.  You can find a list of (all query operators here)[https://www.ibm.com/watson/developercloud/doc/discovery/query-reference.html#parameter-descriptions].
+The ',' is the boolean operater 'and'.  You can find a list of <a href="https://www.ibm.com/watson/developercloud/doc/discovery/query-reference.html#parameter-descriptions">all query operators here</a>.
 
 Run the query again and you will see that the result now contains stories that include both Bitcoin and China. Going through the results you see that there are items you really do not care about.  If you look at the 'taxonomy' of a result, Discovery gives you a breakdown of the categories the story belongs to.  Some of these categories we do not care about, and do not want them in our results.  For instance, I was getting stories about Pets.  Definitely not the kind of results that I want, so lets exclude those.  I also see that 'finance' is an option.  I definitely want those.  Also, I am not interested in old stories so lets just get then items that are a few days old.  Note that 'yyyymmdd' is not some special search marker.  Its simple a value that was in our results that we can now use to create a better query.  You can do this with any value that you wish.
 
