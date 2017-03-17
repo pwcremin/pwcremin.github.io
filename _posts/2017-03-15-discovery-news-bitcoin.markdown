@@ -6,7 +6,7 @@ date:   2017-03-15 18:01:11
 categories: bluemix watson discovery news bitcoin
 ---
 
-For the past year, the biggest movements in Bitcoin have been caused by China.  Lets use [Discovery News](https://www.ibm.com/watson/developercloud/discovery-news.html) to track news stories about Bitcoin where China is involved and use sentiment analysis to see if the stories are trending positive or negative.
+For the past year, the biggest movements in Bitcoin have been caused by China.  Let's use [Discovery News](https://www.ibm.com/watson/developercloud/discovery-news.html) to track news stories about Bitcoin where China is involved and use sentiment analysis to see if the stories are trending positive or negative.
 
 Full source for this demo is [available on Github](https://github.com/pwcremin/discovery-news-bitcoin-watcher)
 ### Setup 
