@@ -26,11 +26,15 @@ Log into Bluemix, go to Catalog|Services|Watson.  Here you see a list of all Wat
 Go to the menu <img src="/assets/discovery-bitcoin/menu.png" width="30"/>, select Services|Dashboard.  Here you will see your newly created Discovery service.  Click on it.
 <br>
 <img src="/assets/discovery-bitcoin/service-dashboard.png" width="200"/>
-<br><br>
+<br>
+
+In your services you will see one with its Service Offering of Discovery.  Click on this service
 <img src="/assets/discovery-bitcoin/view_service.png" width="200"/>
 <br>
-In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  Save your username and password.
 
+In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  Save your username and password.
+<img src="/assets/discovery-bitcoin/service-credentials.png" width="200"/>
+<br>
 Now lets setup Watson News.  Click on Manage|Launch Tool.  
 
 Using Discovery you can upload your own files, which can then be searched using the Discovery, or search the predefined dataset of Discovery News, which is what we are going to do.
