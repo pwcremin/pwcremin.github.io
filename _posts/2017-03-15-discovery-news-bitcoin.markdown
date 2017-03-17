@@ -195,7 +195,7 @@ discovery.query( {
 }, 
 ```
 
-Run your server again and you see that we are getting much more relevant information.  However, lots of the stories seem to be the same.  Not a big suprise here, these financial blogs seems to all copy the big story.  It is likely that if many people are writing about the same story, it is probably something we will care about.  Lets group together stories with the same title using 'aggregate.  Also, lets tell the query to only return the values that we want using 'return'
+Run your server again and you see that we are getting much more relevant information.  However, lots of the stories seem to be the same.  Not a big suprise here, these financial blogs seem to all copy the same big story. Lets group together stories with the same title using 'aggregate.  Also, lets tell the query to only return the values that we want using 'return'
 
 ```javascript
 discovery.query( {
