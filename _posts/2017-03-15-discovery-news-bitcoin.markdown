@@ -22,7 +22,7 @@ Go to the menu, select Services, and then Dashboard.  Here you will see your new
 
 ![](/assets/discovery-bitcoin/view_service.png)
 
-In order to access this service we are going to need the service credentials. Click on credentials and then view the credentials.  You will need your username and password, so save this data.
+In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  You will need your username and password, so save this data.
 
 Now lets get setup for Watson News.  Click on Manage and then Launch Tool.  
 
