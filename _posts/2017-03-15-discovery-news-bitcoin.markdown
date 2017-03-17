@@ -22,14 +22,13 @@ div {
 
 div img {
     display:block;
+    margin: auto;
 }
 
 div:after {
     content: '';
     display: inline-block;
     width: 100%;
-      margin-left:auto;
-  margin-right:auto;
 }
 
 </style>
