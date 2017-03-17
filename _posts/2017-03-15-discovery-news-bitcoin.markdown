@@ -14,15 +14,15 @@ For the past year, the biggest movements in Bitcoin have been caused by China.  
 
 Log into Bluemix, go to Catalog, and, under Services, select the Watson services.  Here you see a list of all Watson services that you can use.  We want Discovery so click on it and then hit the Create Button
 
-![](/assets/discovery-bitcoin/catalaog.png)
-![](/assets/discovery-bitcoin/watson-service.png)
-![](/assets/discovery-bitcoin/discovery_service.png)
+![](/assets/discovery-bitcoin/catalaog.png =100)
+![](/assets/discovery-bitcoin/watson-service.png =100x20)
+![](/assets/discovery-bitcoin/discovery_service.png =100x)
 
-In order to access this service we are going to need xxx.  Go to the menu and select Services and then Dashboard.  Here you will see your newly created Discovery service.  Click on it.
+Go to the menu, select Services, and then Dashboard.  Here you will see your newly created Discovery service.  Click on it.
 
 ![](/assets/discovery-bitcoin/view_service.png)
 
-The Service Credentials give us everything that we will need to access the service.  Click on credentials and then view the credentials.  You will need your username and password, so save this data.
+In order to access this service we are going to need the service credentials. Click on credentials and then view the credentials.  You will need your username and password, so save this data.
 
 Now lets get setup for Watson News.  Click on Manage and then Launch Tool.  
 
