@@ -34,7 +34,7 @@ Click on Watson News and you will see the environment id and collection id.  Sav
 
 #### Setup Node Express
 
-We are going to create a Node Express server with routes that return the results of our queries.  I am going to assume that you know how to setup your environment for Node and get an Express server going.  In addition we are going to grap the xx package which will allow us to easily make call to the Discovery service.
+We are going to create a Node Express server with routes that return the results of our queries.  I am going to assume that you know how to setup your environment for Node and get an Express server going.  In addition we are going to grap the watson-developer-cloud package which will allow us to easily make call to the Discovery service.
 
 ```
 npm install watson-developer-cloud --save
