@@ -17,9 +17,9 @@ Log into Bluemix, go to Catalog|Services|Watson.  Here you see a list of all Wat
 
 <br>
 <img src="/assets/discovery-bitcoin/catalaog.png" width="200"/>
-<br><br>
+<br>
 <img src="/assets/discovery-bitcoin/watson-service.png" width="200"/>
-<br><br>
+<br>
 <img src="/assets/discovery-bitcoin/discovery_service.png" width="350"/>
 <br>
 
