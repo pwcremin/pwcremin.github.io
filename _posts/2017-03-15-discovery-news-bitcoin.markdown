@@ -21,9 +21,9 @@ div {
 }
 
 div img {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
+    display:block;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 div:after {
