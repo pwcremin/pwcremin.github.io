@@ -18,8 +18,6 @@ Log into Bluemix, go to Catalog, and, under Services, select the Watson services
 
 div {
     text-align: justify;
-      margin-left:auto;
-  margin-right:auto;
 }
 
 div img {
@@ -30,6 +28,8 @@ div:after {
     content: '';
     display: inline-block;
     width: 100%;
+      margin-left:auto;
+  margin-right:auto;
 }
 
 </style>
