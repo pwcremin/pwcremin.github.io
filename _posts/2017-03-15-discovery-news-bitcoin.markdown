@@ -213,7 +213,7 @@ discovery.query( {
 }, 
 ```
 
-We are now getting back a dataset that we can do something with. The sentiment score is especially handy. As expected, a positive or negative score expresses the general sentiment of the article.  The bigger the number, the better/worse the sentiment.  Lets add an aggregation that will tell of the average sentiment of the results.
+We are now getting back a dataset that we can do something with. The sentiment score is especially handy. As expected, a positive or negative score expresses the general sentiment of the article.  The bigger the number, the better/worse the sentiment.  Lets add an aggregation that will tell us the average sentiment of the results.
 
 ```javascript
 discovery.query( {
