@@ -64,6 +64,6 @@ Commit your change, push it, and then quickly jump to your Delivery Pipeline win
 
 <br>
 <br>
-<img src="/assets/devops/delivery-stages.png" width="400"/>
+<img src="/assets/devops/delivery-stages.png" width="550"/>
 <br>
 <br>
