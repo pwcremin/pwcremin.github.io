@@ -43,7 +43,7 @@ The toolchain is preconfigured for continuous delivery, source control, blue-gre
 <br>
 <br>
 
-To see the toolchain in action, open the Eclipse Orion IDE.  This online editor will allow us to make code changes without the need for setting up your local environment.  You can also debug your live server and view logs files using the tool.
+To see the toolchain in action, open the Eclipse Orion IDE.  This online editor will allow us to make code changes without the need for setting up your local environment.  You can also debug your live server and view log files using the tool.
 
 
 <br>
