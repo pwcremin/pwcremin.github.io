@@ -52,7 +52,7 @@ To see the toolchain in action, open the Eclipse Orion IDE.  This online editor 
 <br>
 <br>
 
-Simply make a few changes to views/index.html and then, on the lef side, select the git button <img src="/assets/devops/git-button.png" width="40"/> button so that we can commit and push the change.  Also, go back to you toolchain and open the Delivery Pipeline in a differnt window so that we can see it in action.
+Simply make a few changes to views/index.html and then, on the lef side, select the git button <img src="/assets/devops/git-button.png" width="40"/> button so that we can commit and push the change.  Also, go back to you toolchain and open the Delivery Pipeline in a different window so that we can see it in action.
 
 <br>
 <br>
