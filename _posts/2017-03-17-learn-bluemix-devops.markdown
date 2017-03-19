@@ -1,351 +1,69 @@
 ---
 layout: post
 comments: true
-title:  "Discovery News for Bitcoin"
-date:   2017-03-15 18:01:11
-categories: bluemix watson discovery news bitcoin
+title:  "Devops Walkthrough"
+date:   2017-03-17 18:01:11
+categories: bluemix devops
 ---
 
-For the past year, the biggest movements in Bitcoin have been caused by China.  Let's use [Discovery News](https://www.ibm.com/watson/developercloud/discovery-news.html) to track news stories about Bitcoin where China is involved and use sentiment analysis to see if the stories are trending positive or negative.
 
-Full source for this demo is [available on Github](https://github.com/pwcremin/discovery-news-bitcoin-watcher)
-### Setup 
+After logging into Bluemix, open the menu and select Apps|Dashboard. This gives you an overview of your running apps and services with options to create new ones.  We are going to create a new app so click on Create App.
 
-#### Create your Watson Discovery service
-
-Log into [Bluemix](https://console.ng.bluemix.net), go to Catalog|Services|Watson.  Here you see a list of all Watson services that you can use.  Choose Discovery|Create.
-<br>
-<br>
-<img src="/assets/discovery-bitcoin/catalaog.png" width="200"/>
-<br><br>
-<img src="/assets/discovery-bitcoin/watson-service.png" width="200"/>
-<br><br>
-<img src="/assets/discovery-bitcoin/discovery_service.png" width="350"/>
-<br>
-<br>
-Go to the menu <img src="/assets/discovery-bitcoin/menu.png" width="30"/>, select Services|Dashboard.  Here you will see your newly created Discovery service.  Click on it.
-<br>
-<br>
-<img src="/assets/discovery-bitcoin/service-dashboard.png" width="200"/>
-<br>
-<br>
-In your services you will see one with its Service Offering of Discovery.  Click on this service
-<br>
-<br>
-<img src="/assets/discovery-bitcoin/click-on-service.png" width="450"/>
-<br>
-<br>
-
-In order to access this service we are going to need the service credentials. Click on Service Credentials and then View the credentials.  Copy your username and password to somewhere. You will need them later.
-<br>
-<br>
-<img src="/assets/discovery-bitcoin/service-credentials.png" width="450"/>
-<br>
-<br>
-Now lets setup Watson News.  Click on Manage|Launch Tool.  
+Under All Services select Apps|Boilerplates. Bluemix gives you a number of boilerplates to help get you started. Select the Node.js Cloudant DB Web Starter.  This will set us up with an app that is bound to a Cloudant database and starter code for our Node server.
 
 <br>
 <br>
-<img src="/assets/discovery-bitcoin/view_service_manage.png" width="450"/>
+<img src="/assets/devops/node-boilerplate.png" width="200"/>
 <br>
 <br>
 
-Using Discovery you can upload your own files, which can then be searched using Discovery, or search the predefined dataset of Discovery News, which is what we are going to do.
+Now your app just needs a unique name and then hit Create.  After a few moments your server will be running using the starter code.  Click on your server's url to see the running server.
+
+
 <br>
 <br>
-<img src="/assets/discovery-bitcoin/your_data.png" width="450"/>
+<img src="/assets/devops/server-link.png" width="200"/>
 <br>
 <br>
-Click on Watson News and you will see the environment id and collection id.  Save this data as we will need it when telling the Discovery API what dataset we are querying.
 
-#### Setup Node Express
+Now lets take a look at some of the Bluemix Devops features.  You are going to need to have a Github account so please create one if needed.
+Click on Overview.  This gives you a breakdown of your running app, and in the bottom right corner you can enable Continuous Delivery. Do it.
 
-We are going to create a Node Express server with a route that will return the results of our query.  I am going to assume that you know how to setup your environment for Node and get an Express server going (If you want my Express server, you can [download the source](https://github.com/pwcremin/discovery-news-bitcoin-watcher) and then run 'npm install'). In addition we need to grab the watson-developer-cloud package which will allow us to easily make calls to the Discovery service.
+<br>
+<br>
+<img src="/assets/devops/continuous-delivery.png" width="200"/>
+<br>
+<br>
 
-```text
-npm install watson-developer-cloud --save
-```
+The toolchain is preconfigured for continuous delivery, source control, blue-green deployment, functional testing, issue tracking, online editing, and alert notification.  This is a setup that many companies need dedicated employees to develop and maintain, but you get with ease using Bluemix. Create the toolchain. (Note, if you haven't done this before you are going to need to enter your Github credentials)
 
-Now we have everything we need. I will assume your Express server has a routes/index.js, but use any route you want.  Lets add this setup code to index.js.  Replace username and password with your own service credentials that you gathered earlier.
+<br>
+<br>
+<img src="/assets/devops/toolchain-overview.png" width="200"/>
+<br>
+<br>
 
-```javascript
-var express = require( 'express' );
-var router = express.Router();
-var DiscoveryV1 = require( 'watson-developer-cloud/discovery/v1' );
-
-var discovery = new DiscoveryV1( {
-    username: "xxx",
-    password: "xxx",
-    version_date: DiscoveryV1.VERSION_DATE_2016_12_15
-} );
-```
-
-### Creating your first query
-
-First do a simple query that just returns all articles that have Bitcoin in their text.
-
-```javascript
-var discovery = new DiscoveryV1( {
-    username: "xxx",
-    password: "xxx",
-    version_date: DiscoveryV1.VERSION_DATE_2016_12_15
-} );
-
-discovery.query( {
-    environment_id: '9d72194c-bfa5-41ec-b47b-00b7a1943612',
-    collection_id: '8854ecb2-6c2b-4bfd-acca-8333a9f4b64e',
-
-    query: 'text:Bitcoin'
-    
-}, function ( err, response )
-{
-    if ( err )
-    {
-        console.error( err );
-    }
-    else
-    {
-        let queryResult = JSON.stringify( response, null, 2 )
-
-        console.log( queryResult );
-    }
-} );
-```
-
-Run your server and you will see output like below:
-
-```json
-{
-      "id": "585342f6989c856f20eb371252e1e70d",
-      "score": 4.7683716,
-      "totalTransactions": "17",
-      "docSentiment": {
-        "mixed": "1",
-        "score": "0.390088",
-        "type": "positive"
-      },
-      "taxonomy": [
-        {
-          "score": "0.905536",
-          "label": "/technology and computing"
-        },
-        {
-          "confident": "no",
-          "score": "0.496139",
-          "label": "/technology and computing/software/databases"
-        },
-        {
-          "confident": "no",
-          "score": "0.292148",
-          "label": "/law, govt and politics/government/government agencies"
-        }
-      ],
-      "enrichedTitle": {
-        "status": "OK",
-        "totalTransactions": "14",
-        "docSentiment": {
-          "type": "neutral"
-        },
-        "language": "english",
-        "taxonomy": [
-          {
-            "score": "0.905536",
-            "label": "/technology and computing"
-          },
-          {
-            "confident": "no",
-            "score": "0.156856",
-            "label": "/law, govt and politics/legal issues/legislation"
-          },
-          {
-            "confident": "no",
-            "score": "0.119892",
-            "label": "/law, govt and politics/politics/lobbying"
-          }
-        ],
-        "relations": [],
-        "entities": [
-          {
-            "count": "1",
-            "sentiment": {
-              "type": "neutral"
-            },
-            "knowledgeGraph": {
-              "typeHierarchy": "/publications/travel weekly"
-            },
-            "text": "Travel Weekly",
-            "type": "PrintMedia",
-            "relevance": "0.33",
-            "disambiguated": {
-              "freebase": "http://rdf.freebase.com/ns/m.0h3v7h6",
-              "dbpedia": "http://dbpedia.org/resource/Travel_Weekly",
-              "name": "Travel Weekly"
-            }
-          }
-        ],
-        "text": "Lawmakers want state to explore bitcoin technology: Travel Weekly",
-        "keywords": [	
-```
-
-The resulting dataset contains all news stories with Bitcoin in the text (default count of 10 results).  We are interested in stories that also involve China, so lets update our query.
+To see the toolchain in action, open the Eclipse Orion IDE.  This online editor will allow us to make code changes without the need for setting up your local environment.  You can also debug your live server and view logs files using the tool.
 
 
-```javascript
-discovery.query( {
-    environment_id: '9d72194c-bfa5-41ec-b47b-00b7a1943612',
-    collection_id: '8854ecb2-6c2b-4bfd-acca-8333a9f4b64e',
+<br>
+<br>
+<img src="/assets/devops/eclipse-ide.png" width="200"/>
+<br>
+<br>
 
-    query: 'text:Bitcoin,China'
-    
-}, 
-```
+Simply make a few changes to views/index.html and then, on the lef side, select the git button <img src="/assets/devops/git-button.png" width="200"/> button so that we can commit and push the change.  Also, go back to you toolchain and open the Delivery Pipeline in a differnt window so that we can see it in action.
 
-The ',' is the boolean operater 'and'.  You can find a list of <a href="https://www.ibm.com/watson/developercloud/doc/discovery/query-reference.html#parameter-descriptions">all query operators here</a>.
+<br>
+<br>
+<img src="/assets/devops/delivery-pipeline.png" width="200"/>
+<br>
+<br>
 
-Run the query again and you will see that the result now contains stories that include both Bitcoin and China. Going through the results you see that there are items you really do not care about.  If you look at the 'taxonomy' of a result, Discovery gives you a breakdown of the categories the story belongs to.  Some of these categories we do not care about, and do not want them in our results.  For instance, I was getting stories about Pets.  Although interestig to many, it is definitely not the kind of results that I want, so lets exclude those.  I also see that 'finance' is an option.  I definitely want those.  Also, I am not interested in old stories so let's just get the items that are a few days old.  Note that 'yyyymmdd' is not some special search marker.  It's simply a value that was in our results that we can now use to create a better query.  You can do this with any value that you wish.
+Commit your change, push it, and then quickly jump to your Delivery Pipeline window.  The pipeline recogize that there is a new commit and kick off the build and deploy stages.  Here you would also want to add a stage for running test cases so that every commit to your repo gets tested.
 
-```javascript
-discovery.query( {
-    environment_id: '9d72194c-bfa5-41ec-b47b-00b7a1943612',
-    collection_id: '8854ecb2-6c2b-4bfd-acca-8333a9f4b64e',
-
-    query: 'text:Bitcoin,China,' +
-    'yyyymmdd:>20170315,' +
-    'taxonomy.label:finance,' +
-    'taxonomy.label:!pets',
-}, 
-```
-
-Run your server again and you see that we are getting much more relevant information.  However, lots of the stories seem to be the same.  Not a big suprise here as these financial blogs seem to all copy the same big story. Lets group together stories with the same title using 'aggregate'.  Also, lets tell the query to only return the values that we want using 'return'.
-
-```javascript
-discovery.query( {
-    environment_id: '9d72194c-bfa5-41ec-b47b-00b7a1943612',
-    collection_id: '8854ecb2-6c2b-4bfd-acca-8333a9f4b64e',
-
-    query: 'text:Bitcoin,China,' +
-    'yyyymmdd:>20170315,' +
-    'taxonomy.label:finance,' +
-    'taxonomy.label:!pets',
-    
-    aggregation:'term(enrichedTitle.text,count:10)',
-    
-    return: 'enrichedTitle.text,url,text,taxonomy,docSentiment' 
-}, 
-```
-
-We are now getting back a dataset that we can do something with. The sentiment score (-1 to 1) is especially handy. As expected, a positive or negative score expresses the general sentiment of the article. Let's add an aggregation that will tell us the average sentiment of the results.
-
-```javascript
-discovery.query( {
-    environment_id: '9d72194c-bfa5-41ec-b47b-00b7a1943612',
-    collection_id: '8854ecb2-6c2b-4bfd-acca-8333a9f4b64e',
-
-    query: 'text:Bitcoin,China,' +
-    'yyyymmdd:>20170315,' +
-    'taxonomy.label:finance,' +
-    'taxonomy.label:!pets',
-    
-    aggregation:'[term(enrichedTitle.text,count:10),average(docSentiment.score)]',
-    
-    return: 'enrichedTitle.text,url,text,taxonomy,docSentiment' 
-}, 
-```
-
-At the time of writing, I received the following results:
-
-```json
- "aggregations": [
-    {
-      "type": "term",
-      "field": "enrichedTitle.text",
-      "count": 10,
-      "results": [
-        {
-          "key": "Bitcoin could be on the edge of a cliff",
-          "matching_results": 13
-        },
-        {
-          "key": "Judge approves $27 million settlement between Lyft, drivers",
-          "matching_results": 5
-        },
-        {
-          "key": "AmTrust cites errors in financials since 2014",
-          "matching_results": 4
-        },
-        {
-          "key": "Brazil judge suspends $50B dam disaster lawsuit",
-          "matching_results": 4
-        },
-        {
-          "key": "Yen stuck in narrow range ahead of G-20 meeting",
-          "matching_results": 4
-        },
-        {
-          "key": "News Highlights : Top Global Markets News of the Day",
-          "matching_results": 3
-        },
-        {
-          "key": "Bitcoin could be on the edge of a cliff - Business Insider",
-          "matching_results": 2
-        },
-        {
-          "key": "News Highlights : Top Financial Services News of the Day",
-          "matching_results": 2
-        },
-        {
-          "key": "Subscribe to read",
-          "matching_results": 2
-        },
-        {
-          "key": "6 things Australian traders will be talking about this morning",
-          "matching_results": 1
-        }
-      ]
-    },
-    {
-      "type": "average",
-      "field": "docSentiment.score",
-      "value": -0.45740894323045556
-    }
-  ]
-```
-
-A negative score of -0.45.  The sentiment score ranges from -1 to 1, so that is pretty bad.  Of course, right now Bitcoin is getting hammered by the possibility of new regulations from China so this score is what I was expecting to get.  This result is also skewed by the large number of articles on the same title "Bitcoin could be on the edge of a cliff".  Something you may or may not want.
-
-Finally, lets go ahead and return these results:
-
-```javascript
-router.get( '/news', function ( req, res, next )
-{
-    discovery.query( {
-        environment_id: '9d72194c-bfa5-41ec-b47b-00b7a1943612',
-        collection_id: '8854ecb2-6c2b-4bfd-acca-8333a9f4b64e',
-
-        query: 'text:Bitcoin,China,' +
-        'yyyymmdd:>20170315,' +
-        'docSentiment.score:<-0.1,' +
-        'taxonomy.label:finance,' +
-        'taxonomy.label:!pets',
-        aggregation:'[term(enrichedTitle.text,count:10),average(docSentiment.score)]',
-        count: 10,
-        return: 'enrichedTitle.text,url,text,taxonomy,docSentiment'
-
-    }, function ( err, response )
-    {
-        if ( err )
-        {
-            console.error( err );
-            res.status( 500 ).json( err )
-        }
-        else
-        {
-            let queryResult = JSON.stringify( response, null, 2 )
-
-            console.log( queryResult );
-
-            res.json( queryResult);
-        }
-    } );
-} );
-```
+<br>
+<br>
+<img src="/assets/devops/delivery-stages.png" width="200"/>
+<br>
+<br>
