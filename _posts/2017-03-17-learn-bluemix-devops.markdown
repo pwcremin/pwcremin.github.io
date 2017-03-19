@@ -17,7 +17,7 @@ Under All Services select Apps|Boilerplates. Bluemix gives you a number of boile
 <br>
 <br>
 
-Now your app just needs a unique name and then hit Create.  After a few moments your server will be running using the starter code.  Click on your server's url to see the running server.
+Your app just needs a unique name and then hit Create.  After a few moments your server will be running using the starter code.  Click on your server's url to see the running server.
 
 
 <br>
@@ -26,7 +26,7 @@ Now your app just needs a unique name and then hit Create.  After a few moments 
 <br>
 <br>
 
-Now lets take a look at some of the Bluemix Devops features.  You are going to need to have a Github account so please create one if needed.
+Lets take a look at some of the Bluemix Devops features.  You are going to need to have a Github account so please create one if needed.
 Click on Overview.  This gives you a breakdown of your running app, and in the bottom right corner you can enable Continuous Delivery. Do it.
 
 <br>
@@ -52,7 +52,7 @@ To see the toolchain in action, open the Eclipse Orion IDE.  This online editor 
 <br>
 <br>
 
-Simply make a few changes to views/index.html and then, on the lef side, select the git button <img src="/assets/devops/git-button.png" width="200"/> button so that we can commit and push the change.  Also, go back to you toolchain and open the Delivery Pipeline in a differnt window so that we can see it in action.
+Simply make a few changes to views/index.html and then, on the lef side, select the git button <img src="/assets/devops/git-button.png" width="40"/> button so that we can commit and push the change.  Also, go back to you toolchain and open the Delivery Pipeline in a differnt window so that we can see it in action.
 
 <br>
 <br>
