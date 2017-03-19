@@ -60,7 +60,7 @@ Simply make a few changes to views/index.html and then, on the lef side, select 
 <br>
 <br>
 
-Commit your change, push it, and then quickly jump to your Delivery Pipeline window.  The pipeline recognizes that there is a new commit and kick off the build and deploy stages.  Here you would also want to add a stage for running test cases so that every commit to your repo gets tested.
+Commit your change, push it, and then quickly jump to your Delivery Pipeline window.  The pipeline recognizes that there is a new commit and kicks off the build and deploy stages.  Here you would also want to add a stage for running test cases so that every commit to your repo gets tested.
 
 <br>
 <br>
