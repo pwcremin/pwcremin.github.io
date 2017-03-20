@@ -13,7 +13,7 @@ Under All Services select Apps|Boilerplates. Bluemix gives you a number of boile
 
 <br>
 <br>
-<img src="/assets/devops/node-boilerplate.png" width="200"/>
+<img src="/assets/devops/node-boilerplate.png" width="300"/>
 <br>
 <br>
 
@@ -22,7 +22,7 @@ Your app just needs a unique name and then hit Create.  After a few moments your
 
 <br>
 <br>
-<img src="/assets/devops/server-link.png" width="200"/>
+<img src="/assets/devops/server-link.png" width="300"/>
 <br>
 <br>
 
@@ -31,7 +31,7 @@ Click on Overview.  This gives you a breakdown of your running app, and in the b
 
 <br>
 <br>
-<img src="/assets/devops/continuous-delivery.png" width="250"/>
+<img src="/assets/devops/continuous-delivery.png" width="300"/>
 <br>
 <br>
 
@@ -48,7 +48,7 @@ To see the toolchain in action, open the Eclipse Orion IDE.  This online editor 
 
 <br>
 <br>
-<img src="/assets/devops/eclipse-ide.png" width="200"/>
+<img src="/assets/devops/eclipse-ide.png" width="250"/>
 <br>
 <br>
 
@@ -56,7 +56,7 @@ Simply make a few changes to views/index.html and then, on the lef side, select 
 
 <br>
 <br>
-<img src="/assets/devops/delivery-pipeline.png" width="200"/>
+<img src="/assets/devops/delivery-pipeline.png" width="300"/>
 <br>
 <br>
 
