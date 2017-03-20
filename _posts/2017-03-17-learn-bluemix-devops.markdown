@@ -190,4 +190,6 @@ exports.index = function(req, res){
 };
 ```
 
-(Complete the Discovery News demo)[http://pwcremin.github.io/bluemix/watson/discovery/news/bitcoin/2017/03/15/discovery-news-bitcoin.html]
+Having to commit, push, and redploy is a bit tedious when we just want to play around with code.  In the Devops editor enable Live Edit and your changes will automatically go live.
+
+To complete the Discovery News demo go to http://pwcremin.github.io/bluemix/watson/discovery/news/bitcoin/2017/03/15/discovery-news-bitcoin.html
