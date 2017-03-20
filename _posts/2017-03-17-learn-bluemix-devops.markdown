@@ -31,7 +31,7 @@ Click on Overview.  This gives you a breakdown of your running app, and in the b
 
 <br>
 <br>
-<img src="/assets/devops/continuous-delivery.png" width="200"/>
+<img src="/assets/devops/continuous-delivery.png" width="450"/>
 <br>
 <br>
 
