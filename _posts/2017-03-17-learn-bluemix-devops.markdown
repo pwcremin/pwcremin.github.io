@@ -31,7 +31,7 @@ Click on Overview.  This gives you a breakdown of your running app, and in the b
 
 <br>
 <br>
-<img src="/assets/devops/continuous-delivery.png" width="450"/>
+<img src="/assets/devops/continuous-delivery.png" width="250"/>
 <br>
 <br>
 
@@ -39,7 +39,7 @@ The toolchain is preconfigured for continuous delivery, source control, blue-gre
 
 <br>
 <br>
-<img src="/assets/devops/toolchain-overview.png" width="200"/>
+<img src="/assets/devops/toolchain-overview.png" width="450"/>
 <br>
 <br>
 
