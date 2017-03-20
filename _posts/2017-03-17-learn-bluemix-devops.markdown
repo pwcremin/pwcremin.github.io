@@ -169,9 +169,9 @@ function getDiscoveryCredentials()
 		if (vcapService.match(/discovery/i)) 
 		{
 		        return {
-		        		username: vcapServices[vcapService][0].credentials.username,
-						password: vcapServices[vcapService][0].credentials.password
-				};
+		        	username: vcapServices[vcapService][0].credentials.username,
+				password: vcapServices[vcapService][0].credentials.password
+			};
 		}
 	}
 }
