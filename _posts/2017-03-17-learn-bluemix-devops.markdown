@@ -67,3 +67,88 @@ Commit your change, push it, and then quickly jump to your Delivery Pipeline win
 <img src="/assets/devops/delivery-stages.png" width="750"/>
 <br>
 <br>
+
+#### Setup for using Discovery News and the watson-developer-cloud package
+
+Lets use our new app to try out the Discovery News service.  We are going to 
+1. Create the Discovery service and bind it to our app
+2. Update our package.json to add the watson-developer-cloud package as a dependency
+3. Update routes/index.js to connect to the Discovery service
+
+If you go back to the Dashboard, and then click on your app, you will return to the page that lets you see the Overview of your app.  In the same menu you can also view your app's Connections.  These are the services that are bound to your app.  Here you see the Cloudant DB service that was setup for you as part of the boilerplate.  Click the Create New button and we will add the Discovery Service.
+
+<br>
+<br>
+<img src="/assets/devops/connections.png" width="750"/>
+<br>
+<br>
+
+Under Services select Watson.  Here you have all of the available Bluemix Watson Services.  We want the Discovery service so click on it and the hit the Create button.  This will create the service and bind it to your app.  After restaging the app, you will have access to the credentials needed to access the service as part of the app's environment.
+
+<br>
+<br>
+<img src="/assets/devops/discovery-service.png" width="750"/>
+<br>
+<br>
+
+Once the app completes restaging go back to the Runtime view of your app and select Environment Variables.  You see that our new service has had its credentials added.
+
+<br>
+<br>
+<img src="/assets/devops/runtime-view.png" width="750"/>
+<br>
+<br>
+
+Make not of the name of your new service and how to access its credentials in the JSON
+
+```json
+    "discovery": [
+        {
+            "credentials": {
+                "url": "https://gateway.watsonplatform.net/discovery/api",
+                "username": "xxx",
+                "password": "xxx"
+            },
+            "syslog_drain_url": null,
+            "label": "discovery",
+            "provider": null,
+            "plan": "free",
+            "name": "Discovery-ja",
+            "tags": [
+                "watson",
+                "ibm_created"
+            ]
+        }
+    ]
+ ```
+ 
+ To access the service we are going to the the watson-developer-cloud package.  Simply update your package.json and add it as a dependency.
+ 
+ ```json
+ {
+  "name": "cloudant_boilerplate_nodejs",
+  "version": "0.0.2",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "4.13.x",
+    "ejs": "2.4.x",
+    "cloudant": "1.4.x",
+    "body-parser": "1.14.x",
+    "method-override": "2.3.x",
+    "morgan": "1.6.x",
+    "errorhandler": "1.4.x",
+    "connect-multiparty": "2.0.x", 
+    "watson-developer-cloud": "^2.26.0"
+  },
+  "repository": {},
+  "engines": {
+  	"node": "4.x"
+  }
+}
+```
+
+The last thing that we are going to do, to complete the setup, is update routes/index.js to use the watson package and our discovery credentials to connect to the service.
+
