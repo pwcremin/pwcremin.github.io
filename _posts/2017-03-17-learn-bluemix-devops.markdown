@@ -152,3 +152,5 @@ Make not of the name of your new service and how to access its credentials in th
 
 The last thing that we are going to do, to complete the setup, is update routes/index.js to use the watson package and our discovery credentials to connect to the service.
 
+
+[Complete the Discovery News demo)[http://pwcremin.github.io/bluemix/watson/discovery/news/bitcoin/2017/03/15/discovery-news-bitcoin.html]
