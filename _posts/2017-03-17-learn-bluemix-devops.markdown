@@ -87,7 +87,7 @@ Under Services select Watson.  Here you have all of the available Bluemix Watson
 
 <br>
 <br>
-<img src="/assets/devops/discovery-service.png" width="750"/>
+<img src="/assets/devops/discovery-service.png" width="400"/>
 <br>
 <br>
 
@@ -152,5 +152,42 @@ Make not of the name of your new service and how to access its credentials in th
 
 The last thing that we are going to do, to complete the setup, is update routes/index.js to use the watson package and our discovery credentials to connect to the service.
 
+```javascript
+"use strict";
 
-[Complete the Discovery News demo)[http://pwcremin.github.io/bluemix/watson/discovery/news/bitcoin/2017/03/15/discovery-news-bitcoin.html]
+var DiscoveryV1 = require( 'watson-developer-cloud/discovery/v1' );
+
+function getDiscoveryCredentials()
+{
+	var vcapServices = JSON.parse(process.env.VCAP_SERVICES);
+	
+	// Pattern match to find the first instance of a Discovery service in
+	// VCAP_SERVICES. If you know your service key, you can access the
+	// service credentials directly by using the vcapServices object.
+	for (var vcapService in vcapServices) 
+	{
+		if (vcapService.match(/discovery/i)) 
+		{
+		        return {
+		        		username: vcapServices[vcapService][0].credentials.username,
+						password: vcapServices[vcapService][0].credentials.password
+				};
+		}
+	}
+}
+
+
+var discoveryCredentials = getDiscoveryCredentials();
+
+var discovery = new DiscoveryV1( {
+    username: discoveryCredentials.username,
+    password: discoveryCredentials.password,
+    version_date: DiscoveryV1.VERSION_DATE_2016_12_15
+} );
+
+exports.index = function(req, res){
+  res.render('index.html', { title: 'Cloudant Boiler Plate' });
+};
+```
+
+(Complete the Discovery News demo)[http://pwcremin.github.io/bluemix/watson/discovery/news/bitcoin/2017/03/15/discovery-news-bitcoin.html]
