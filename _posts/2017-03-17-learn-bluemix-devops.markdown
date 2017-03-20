@@ -19,7 +19,6 @@ Under All Services select Apps|Boilerplates. Bluemix gives you a number of boile
 
 Your app just needs a unique name and then hit Create.  After a few moments your server will be running using the starter code.  Click on your server's url to see the running server.
 
-
 <br>
 <br>
 <img src="/assets/devops/server-link.png" width="300"/>
@@ -45,14 +44,13 @@ The toolchain is preconfigured for continuous delivery, source control, blue-gre
 
 To see the toolchain in action, open the Eclipse Orion IDE.  This online editor will allow us to make code changes without the need for setting up your local environment.  You can also debug your live server and view log files using the tool.
 
-
 <br>
 <br>
 <img src="/assets/devops/eclipse-ide.png" width="250"/>
 <br>
 <br>
 
-Simply make a few changes to views/index.html and then, on the lef side, select the git button <img src="/assets/devops/git-button.png" width="40"/> button so that we can commit and push the change.  Also, go back to you toolchain and open the Delivery Pipeline in a different window so that we can see it in action.
+Simply make a few changes to views/index.html and then, on the left side, select the git button <img src="/assets/devops/git-button.png" width="40"/> button so that we can commit and push the change.  Also, go back to your toolchain and open the Delivery Pipeline in a different window so that we can see it in action.
 
 <br>
 <br>
@@ -99,7 +97,7 @@ Once the app completes restaging go back to the Runtime view of your app and sel
 <br>
 <br>
 
-Make not of the name of your new service and how to access its credentials in the JSON
+Make note of the name of your new service and how to access its credentials in the JSON
 
 ```json
     "discovery": [
