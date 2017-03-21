@@ -8,7 +8,7 @@ categories: bluemix devops
 
 
 After logging into Bluemix, open the menu and select Apps|Dashboard. This gives you an overview of your running apps and services with options to create new ones.  We are going to create a new app so click on Create App.
-
+<br>
 Under All Services select Apps|Boilerplates. Bluemix gives you a number of boilerplates to help get you started. Select the Node.js Cloudant DB Web Starter.  This will set us up with an app that is bound to a Cloudant database and starter code for our Node server.
 
 <br>
